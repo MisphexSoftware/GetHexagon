@@ -3,282 +3,133 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Hexagon — Downloads</title>
+  <title>Hexagon — Ethical Security Testing Toolkit</title>
   <style>
-    :root{
-      --bg:#071027; --card:#081426; --muted:#9aa6bf; --accent:#6ee7b7;
-      font-family: Inter, Roboto, system-ui, -apple-system, "Segoe UI";
+    body {
+      margin: 0;
+      font-family: Inter, "Segoe UI", Roboto, system-ui;
+      background: linear-gradient(180deg, #0a0f1c, #0d1425);
+      color: #e5e7eb;
     }
-    body{margin:0;min-height:100vh;background:linear-gradient(180deg,#04102a,#061025);color:#e6eef8;padding:28px;}
-    .wrap{max-width:920px;margin:0 auto}
-    header{display:flex;align-items:center;gap:12px}
-    .logo{width:56px;height:56px;border-radius:10px;background:linear-gradient(135deg,#0ea5a4,#4f46e5);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:22px;color:white}
-    h1{margin:0;font-size:20px}
-    .lead{color:var(--muted);margin-top:6px}
-    .card{background:var(--card);padding:18px;border-radius:12px;margin-top:18px;box-shadow:0 10px 30px rgba(2,6,23,0.6)}
-    .row{display:flex;gap:16px;flex-wrap:wrap}
-    .left{flex:1;min-width:240px}
-    .right{width:280px;min-width:220px}
-    .download-btn{display:inline-flex;align-items:center;gap:10px;padding:12px 16px;border-radius:10px;background:linear-gradient(90deg,var(--accent),#34d399);color:#01201a;font-weight:700;border:none;cursor:pointer;font-size:15px}
-    .meta{color:var(--muted);font-size:14px;margin-top:8px}
-    pre.checksum{background:rgba(255,255,255,0.02);padding:10px;border-radius:8px;color:var(--muted);overflow:auto;font-size:13px;margin-top:10px}
-    a.inline{color:#8be6c1;text-decoration:none}
-    .asset-list{margin-top:12px}
-    .asset{display:flex;justify-content:space-between;align-items:center;padding:8px;border-radius:8px;background:rgba(255,255,255,0.01);margin-bottom:8px}
-    .small{font-size:13px;color:var(--muted)}
-    .error{color:#ffb4b4;background:rgba(255,80,80,0.06);padding:10px;border-radius:8px;margin-top:12px}
+    header {
+      text-align: center;
+      padding: 64px 16px 24px;
+    }
+    h1 {
+      font-size: 2.4rem;
+      margin: 0;
+      background: linear-gradient(90deg, #6ee7b7, #3b82f6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    p.lead {
+      color: #9ca3af;
+      max-width: 640px;
+      margin: 12px auto 0;
+      font-size: 1.1rem;
+    }
+    main {
+      max-width: 900px;
+      margin: 32px auto;
+      background: rgba(255,255,255,0.03);
+      padding: 24px;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+    }
+    .download {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+    .button {
+      background: linear-gradient(90deg, #6ee7b7, #3b82f6);
+      color: #0a0a0a;
+      border: none;
+      border-radius: 8px;
+      padding: 12px 20px;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .meta {
+      font-size: 0.9rem;
+      color: #9ca3af;
+    }
+    section {
+      margin-top: 24px;
+    }
+    h2 {
+      color: #a5b4fc;
+      font-size: 1.3rem;
+      margin-bottom: 8px;
+    }
+    footer {
+      text-align: center;
+      padding: 32px 0;
+      font-size: 0.85rem;
+      color: #6b7280;
+    }
+    a {
+      color: #6ee7b7;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <header>
-      <div class="logo">H</div>
+  <header>
+    <h1>Hexagon Security Toolkit</h1>
+    <p class="lead">A modular security testing and research platform built for bug bounty professionals and developers.<br>
+    <strong>For authorized testing and educational use only.</strong></p>
+  </header>
+
+  <main>
+    <section class="download">
       <div>
-        <h1>Hexagon — Official Downloads</h1>
-        <p class="lead">Latest release pulled from GitHub Releases. For unauthorized security testing only.</p>
+        <h2>Download Latest Release</h2>
+        <p class="meta">Version 1.2.3 · Updated Nov 2025 · SHA256: e3b0c44298fc1c1...</p>
       </div>
-    </header>
-
-    <section class="card" id="card">
-      <div id="loading" class="meta">Fetching latest release from GitHub…</div>
-
-      <div id="content" style="display:none">
-        <div class="row">
-          <div class="left">
-            <h2 id="releaseTitle" style="margin:0">Release</h2>
-            <div class="meta" id="releaseMeta">Version · date</div>
-
-            <div class="asset-list" id="assets"></div>
-
-            <div id="changelogSection" style="margin-top:12px">
-              <h3 style="margin:6px 0 8px;color:#a5b4fc">Changelog / Notes</h3>
-              <div id="bodyText" class="small" style="white-space:pre-wrap;color:#dbeafe"></div>
-            </div>
-          </div>
-
-          <aside class="right">
-            <div style="padding:12px;border-radius:10px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01))">
-              <strong>Selected asset</strong>
-              <div id="selectedAsset" style="margin-top:8px;color:#dbeafe">—</div>
-              <div class="meta" id="selectedMeta"></div>
-              <pre class="checksum" id="checksumPre" style="display:none"></pre>
-            </div>
-
-            <div style="margin-top:12px;padding:12px;background:rgba(255,255,255,0.02);border-radius:8px">
-              <strong>Safety & Legal</strong>
-              <div class="small" style="color:var(--muted);margin-top:6px">
-                Misuse of our products is illegal.
-              </div>
-            </div>
-          </aside>
-        </div>
-      </div>
+      <a href="https://example.com/downloads/hexagon-v1.2.3.zip" class="button">⬇ Download</a>
     </section>
 
-    <footer style="margin-top:18px;color:var(--muted);font-size:13px">
-      Release info provided by GitHub · © <span id="year"></span> Hexagon
-    </footer>
-  </div>
+    <section>
+      <h2>Changelog</h2>
+      <ul>
+        <li>1.2.3 — Improved network module and reduced memory footprint.</li>
+        <li>1.2.2 — Added logging for authorized scope tests.</li>
+        <li>1.2.0 — Integrated target validation workflow.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Legal Disclaimer</h2>
+      <p class="meta">
+        Hexagon is intended solely for authorized security research, penetration testing, and bug bounty programs.
+        You may only use this software against systems and networks you own or have explicit written permission to test.
+        Misuse of this software may violate applicable laws and is strictly prohibited.  
+        The authors and distributors assume no liability for misuse or damage caused by this tool.
+      </p>
+    </section>
+
+    <section>
+      <h2>Contact</h2>
+      <p class="meta">
+        Questions or partnerships? Email <a href="mailto:security@hexagon.dev">security@hexagon.dev</a>  
+        or join our <a href="https://discord.gg/yourinvite">community Discord</a>.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    © <span id="year"></span> Hexagon Labs — All rights reserved.
+  </footer>
 
   <script>
-    // === CONFIGURE THIS ===
-    const GITHUB_OWNER = "OWNER"; // replace with your GitHub owner/org
-    const GITHUB_REPO  = "REPO";  // replace with your GitHub repo name
-    // Optionally place a GitHub token here if you expect many requests or private repo:
-    const GITHUB_TOKEN = ""; // e.g. "ghp_xxx" (leave empty for public repos)
-    // ======================
-
-    // Helper: format bytes
-    function formatBytes(bytes) {
-      if (!bytes && bytes !== 0) return "—";
-      const units = ['B','KB','MB','GB','TB'];
-      let i = 0;
-      let v = bytes;
-      while (v >= 1024 && i < units.length-1) { v /= 1024; i++; }
-      return `${v.toFixed(1)} ${units[i]}`;
-    }
-
-    // Choose "best" asset for user platform (basic heuristic)
-    function chooseBestAsset(assets) {
-      if (!assets || assets.length === 0) return null;
-      const plat = (navigator.platform || "").toLowerCase();
-      const userAgent = (navigator.userAgent || "").toLowerCase();
-
-      // prefer matching platform keywords
-      const prefs = [];
-      if (userAgent.includes("windows")) prefs.push("windows","win");
-      if (userAgent.includes("mac") || userAgent.includes("darwin") || plat.includes("mac")) prefs.push("mac","darwin","osx");
-      if (userAgent.includes("linux") || plat.includes("linux")) prefs.push("linux");
-
-      // also prefer archive types
-      const extPriority = [".zip",".exe",".dmg",".tar.gz",".tar",".AppImage",".deb"];
-
-      let scored = assets.map(a => {
-        let score = 0;
-        const name = (a.name || "").toLowerCase();
-        for (const p of prefs) if (name.includes(p)) score += 30;
-        for (let i=0;i<extPriority.length;i++) if (name.endsWith(extPriority[i].toLowerCase())) score += (10 - i);
-        // smaller penalty for assets with "sha" (they are not downloadable binary)
-        if (name.includes("sha") || name.includes("checksum")) score -= 25;
-        return { asset: a, score };
-      });
-
-      scored.sort((a,b) => b.score - a.score);
-      return scored[0].asset;
-    }
-
-    // Try to find checksum asset (sha256) among release assets
-    function findChecksumAsset(assets) {
-      if (!assets) return null;
-      const candidates = assets.filter(a => /sha256|sha-256|sha2|checksum|sha.sum|sha256sum/i.test(a.name));
-      if (candidates.length === 0) return null;
-      // prefer plain text checksum file
-      return candidates[0];
-    }
-
-    async function fetchLatestRelease() {
-      const headers = { 'Accept': 'application/vnd.github.v3+json' };
-      if (GITHUB_TOKEN) headers['Authorization'] = 'token ' + GITHUB_TOKEN;
-
-      const apiUrl = `https://api.github.com/repos/${encodeURIComponent(GITHUB_OWNER)}/${encodeURIComponent(GITHUB_REPO)}/releases/latest`;
-      const res = await fetch(apiUrl, { headers });
-      if (!res.ok) {
-        throw new Error(`GitHub API error: ${res.status} ${res.statusText}`);
-      }
-      return res.json();
-    }
-
-    async function fetchTextFromUrl(url) {
-      const headers = {};
-      if (GITHUB_TOKEN) headers['Authorization'] = 'token ' + GITHUB_TOKEN;
-      const r = await fetch(url, { headers });
-      if (!r.ok) throw new Error(`Failed to fetch: ${r.status}`);
-      return r.text();
-    }
-
-    (async function init(){
-      document.getElementById("year").textContent = new Date().getFullYear();
-      const loading = document.getElementById("loading");
-      const content = document.getElementById("content");
-      const card = document.getElementById("card");
-
-      try {
-        const release = await fetchLatestRelease();
-        loading.style.display = "none";
-        content.style.display = "block";
-
-        const title = release.name || release.tag_name || `Release ${release.tag_name}`;
-        document.getElementById("releaseTitle").textContent = title;
-        const d = new Date(release.published_at || release.created_at || Date.now());
-        const dateStr = d.toISOString().slice(0,10);
-        document.getElementById("releaseMeta").textContent = `${release.tag_name || ''} · ${dateStr}`;
-
-        // show release body / changelog
-        document.getElementById("bodyText").textContent = release.body || "No release notes provided.";
-
-        // build asset list
-        const assetsContainer = document.getElementById("assets");
-        assetsContainer.innerHTML = "";
-
-        // assets can include checksum files; keep them all
-        const assets = (release.assets || []).map(a => ({
-          id: a.id,
-          name: a.name,
-          size: formatBytes(a.size),
-          downloadUrl: a.browser_download_url,
-          raw: a
-        }));
-
-        if (assets.length === 0) {
-          assetsContainer.innerHTML = '<div class="small" style="color:var(--muted)">No release assets attached (check GitHub Releases page).</div>';
-        } else {
-          // render each
-          assets.forEach(a => {
-            const el = document.createElement("div");
-            el.className = "asset";
-            el.innerHTML = `
-              <div>
-                <div style="font-weight:700">${a.name}</div>
-                <div class="small">${a.size}</div>
-              </div>
-              <div style="display:flex;flex-direction:column;align-items:flex-end;gap:8px">
-                <a class="download-btn small" href="${a.downloadUrl}" target="_blank" rel="noopener">Download</a>
-                <div class="small" style="opacity:.85">${a.raw.updated_at ? new Date(a.raw.updated_at).toISOString().slice(0,10) : ''}</div>
-              </div>
-            `;
-            assetsContainer.appendChild(el);
-
-            // click to select: make the row clickable to show detail
-            el.addEventListener("click", () => selectAsset(a));
-            // also attach click to the button to select and navigate
-            el.querySelector('a').addEventListener("click", (ev) => {
-              // show as selected but allow normal navigation
-              selectAsset(a);
-            });
-          });
-
-          // pick best asset for user platform
-          const best = chooseBestAsset(assets.map(x=>x.raw));
-          const bestObj = assets.find(a => a.raw.id === (best && best.id));
-          if (bestObj) {
-            selectAsset(bestObj);
-            // optionally, add auto-click to download for convenience — disabled by default
-            // window.open(bestObj.downloadUrl, '_blank');
-          } else {
-            // pick the first asset
-            selectAsset(assets[0]);
-          }
-        }
-
-        // show checksum file if present
-        const checksumAssetRaw = findChecksumAsset(release.assets || []);
-        if (checksumAssetRaw) {
-          try {
-            // fetch checksum text
-            const text = await fetchTextFromUrl(checksumAssetRaw.browser_download_url);
-            const checksumPre = document.getElementById("checksumPre");
-            checksumPre.style.display = "block";
-            checksumPre.textContent = text.trim().slice(0,2000); // limit length to avoid massive files
-          } catch (e) {
-            // ignore fetch errors
-          }
-        }
-
-      } catch (err) {
-        console.error(err);
-        loading.textContent = "Could not fetch release info from GitHub.";
-        const errBox = document.createElement("div");
-        errBox.className = "error";
-        errBox.textContent = err.message || String(err);
-        card.appendChild(errBox);
-      }
-    })();
-
-    // show asset details in right column
-    function selectAsset(a) {
-      const sel = document.getElementById("selectedAsset");
-      const selMeta = document.getElementById("selectedMeta");
-      const checksumPre = document.getElementById("checksumPre");
-
-      sel.textContent = a.name;
-      selMeta.textContent = `${a.size} · ${a.raw.browser_download_url ? 'Direct download available' : ''}`;
-
-      // try to display checksum if the asset name contains sha or if checksum file lists it
-      checksumPre.style.display = "none";
-      // attempt to find inline sha256 in release body (common pattern)
-      const body = document.getElementById("bodyText").textContent || "";
-      const re = new RegExp(`([A-Fa-f0-9]{64})\\s+${escapeRegExp(a.name)}`);
-      const m = body.match(re);
-      if (m) {
-        checksumPre.style.display = "block";
-        checksumPre.textContent = `SHA256 ${m[1]}  ${a.name}`;
-      }
-    }
-
-    // small helper to escape dynamic regex
-    function escapeRegExp(string) {
-      return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-    }
+    document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
