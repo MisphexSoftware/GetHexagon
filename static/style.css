@@ -1,0 +1,319 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+
+:root {
+    --primary-color: #ffffff; /* White for primary text and highlights */
+    --dark-color: #000000;     /* Off-black for the main background */
+    --light-color: #a1a1a1;    /* Light gray for secondary text */
+    --darker-color: #1a1a1a;   /* Dark gray for cards and sections */
+    --border-color: rgba(255, 255, 255, 0.1); /* Lighter for the new design */
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* --- New Aurora Background --- */
+@keyframes move-aurora {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+body {
+    background-color: var(--dark-color);
+    background-image: radial-gradient(at 27% 37%, hsla(215, 98%, 62%, 0.1) 0px, transparent 50%),
+                      radial-gradient(at 97% 21%, hsla(125, 98%, 72%, 0.1) 0px, transparent 50%),
+                      radial-gradient(at 75% 29%, hsla(283, 98%, 72%, 0.1) 0px, transparent 50%),
+                      radial-gradient(at 26% 83%, hsla(13, 98%, 61%, 0.1) 0px, transparent 50%),
+                      radial-gradient(at 97% 96%, hsla(353, 98%, 61%, 0.1) 0px, transparent 50%);
+    background-size: 200% 200%;
+    animation: move-aurora 15s ease infinite;
+    color: var(--light-color);
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Navbar */
+.navbar {
+    background-color: rgba(10, 10, 10, 0.8);
+    backdrop-filter: blur(10px);
+    padding: 1.2rem 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo-img {
+    height: 70px; /* Increased from 55px */
+    margin-right: 20px; /* Also increased spacing */
+}
+
+.navbar .logo {
+    font-weight: 700;
+    font-size: 1.8rem;
+    color: var(--primary-color);
+}
+
+.navbar .nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.navbar .nav-links li {
+    margin-left: 20px;
+}
+
+.navbar .nav-links a {
+    color: var(--light-color);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.navbar .nav-links a:hover {
+    color: var(--primary-color);
+}
+
+/* Hero Section */
+.hero {
+    background: transparent;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+}
+
+/* --- New Spotlight Card Effect --- */
+.spotlight-card {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+}
+.spotlight-card::before {
+    content: '';
+    position: absolute;
+    left: var(--mouse-x, 50%);
+    top: var(--mouse-y, 50%);
+    width: 250px;
+    height: 250px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 50%);
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+.spotlight-card:hover::before {
+    opacity: 1;
+}
+
+.hero h2 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 2.5rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.btn {
+    display: inline-block;
+    padding: 14px 32px;
+    background-color: var(--primary-color);
+    color: var(--dark-color);
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    border: 1px solid var(--primary-color);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+    text-shadow: 0 0 5px rgba(0,0,0,0.5);
+    position: relative; /* For spotlight */
+    overflow: hidden; /* For spotlight */
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+.btn::before {
+    content: '';
+    position: absolute;
+    left: var(--mouse-x, 50%);
+    top: var(--mouse-y, 50%);
+    width: 150px;
+    height: 150px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 60%);
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+.btn:hover::before {
+    opacity: 1;
+}
+
+.btn.btn-secondary {
+    background-color: transparent;
+    color: var(--primary-color);
+}
+
+.btn.btn-secondary:hover {
+    background-color: var(--primary-color);
+    color: var(--dark-color);
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.5);
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.5);
+    background-color: var(--primary-color);
+    color: var(--dark-color);
+}
+
+.btn:active {
+    transform: translateY(-1px) scale(0.98);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+}
+
+.btn i {
+    margin-left: 8px;
+}
+
+main {
+    padding-top: 80px; /* Offset for fixed navbar */
+}
+
+/* Sections */
+section {
+    padding: 4rem 0;
+}
+
+h2 {
+    text-align: center;
+    font-size: 2.8rem;
+    margin-bottom: 3.5rem;
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+/* Features Section */
+#features .container {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+}
+
+#features h2 {
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+/* Apply to feature cards */
+.feature-card {
+    background-color: rgba(26, 26, 26, 0.5);
+    backdrop-filter: blur(10px);
+    padding: 2.5rem;
+    text-align: center;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 40px rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+.feature-card i {
+    font-size: 3rem;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+}
+
+.feature-card h3 {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+/* Showcase Section */
+#showcase {
+    background-color: transparent; /* Fix: Was missing */
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+}
+
+.video-container {
+    max-width: 800px;
+    margin: 0 auto;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.video-container img {
+    width: 100%;
+    display: block;
+    border-radius: 10px;
+}
+
+/* Download CTA Section */
+#download {
+    background-color: transparent; /* Fix: Was missing */
+    padding: 6rem 0;
+    text-align: center;
+}
+
+.download-cta p {
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Footer */
+footer {
+    background-color: var(--darker-color);
+    border-top: 1px solid var(--border-color);
+}
+
+@media (max-width: 768px) {
+    .hero h2 {
+        font-size: 2.5rem;
+    }
+
+    .navbar .nav-links {
+        display: none; /* Simple responsive for now */
+    }
+}
