@@ -1,135 +1,81 @@
-<!doctype html>
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Hexagon — Ethical Security Testing Toolkit</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Inter, "Segoe UI", Roboto, system-ui;
-      background: linear-gradient(180deg, #0a0f1c, #0d1425);
-      color: #e5e7eb;
-    }
-    header {
-      text-align: center;
-      padding: 64px 16px 24px;
-    }
-    h1 {
-      font-size: 2.4rem;
-      margin: 0;
-      background: linear-gradient(90deg, #6ee7b7, #3b82f6);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    p.lead {
-      color: #9ca3af;
-      max-width: 640px;
-      margin: 12px auto 0;
-      font-size: 1.1rem;
-    }
-    main {
-      max-width: 900px;
-      margin: 32px auto;
-      background: rgba(255,255,255,0.03);
-      padding: 24px;
-      border-radius: 12px;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.4);
-    }
-    .download {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: center;
-      gap: 12px;
-    }
-    .button {
-      background: linear-gradient(90deg, #6ee7b7, #3b82f6);
-      color: #0a0a0a;
-      border: none;
-      border-radius: 8px;
-      padding: 12px 20px;
-      font-weight: 600;
-      cursor: pointer;
-      text-decoration: none;
-    }
-    .meta {
-      font-size: 0.9rem;
-      color: #9ca3af;
-    }
-    section {
-      margin-top: 24px;
-    }
-    h2 {
-      color: #a5b4fc;
-      font-size: 1.3rem;
-      margin-bottom: 8px;
-    }
-    footer {
-      text-align: center;
-      padding: 32px 0;
-      font-size: 0.85rem;
-      color: #6b7280;
-    }
-    a {
-      color: #6ee7b7;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hexagon - The Future of Script Execution</title>
+    <meta name="description" content="Download Hexagon, the cutting-edge tool for script execution.">
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
-  <header>
-    <h1>Hexagon Security Toolkit</h1>
-    <p class="lead">A modular security testing and research platform built for bug bounty professionals and developers.<br>
-    <strong>For authorized testing and educational use only.</strong></p>
-  </header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo-container">
+                <img src="/static/Hexagon.png" alt="Hexagon Logo" class="logo-img">
+                <h1 class="logo">Hexagon</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#download">Download</a></li>
+            </ul>
+        </div>
+    </nav>
 
-  <main>
-    <section class="download">
-      <div>
-        <h2>Download Latest Release</h2>
-        <p class="meta">Version 1.2.3 · Updated Nov 2025 · SHA256: e3b0c44298fc1c1...</p>
-      </div>
-      <a href="https://example.com/downloads/hexagon-v1.2.3.zip" class="button">⬇ Download</a>
-    </section>
+    <header class="hero">
+        <div id="stars"></div>
+        <div id="stars2"></div>
+        <div id="stars3"></div>
+        <div class="container">
+            <h2>Unlock Your Full Potential</h2>
+            <p>Experience the most powerful and reliable executor. Get your key for Hexagon premium or download the free version now.</p>
+            <div class="hero-buttons">
+                <a href="https://discord.gg/PrBrVrH2WH" class="btn btn-secondary">Join Discord</a>
+                <a href="/static/Executor.zip" class="btn btn-secondary">Download Free <i class="fas fa-download"></i></a>
+            </div>
+        </div>
+    </header>
 
-    <section>
-      <h2>Changelog</h2>
-      <ul>
-        <li>1.2.3 — Improved network module and reduced memory footprint.</li>
-        <li>1.2.2 — Added logging for authorized scope tests.</li>
-        <li>1.2.0 — Integrated target validation workflow.</li>
-      </ul>
-    </section>
+    <main>
+        <section id="features" class="features-section">
+            <div class="container">
+                <h2>Why Choose Hexagon?</h2>
+                <div class="features-grid">
+                    <div class="feature-card spotlight-card">
+                        <i class="fas fa-bolt"></i>
+                        <h3>Blazing Fast</h3>
+                        <p>Our executor is optimized for performance, ensuring a smooth and lag-free experience.</p>
+                    </div>
+                    <div class="feature-card spotlight-card">
+                        <i class="fas fa-shield-alt"></i>
+                        <h3>Undetectable</h3>
+                        <p>With our advanced security, you can use our executor without worrying about bans.</p>
+                    </div>
+                    <div class="feature-card spotlight-card">
+                        <i class="fas fa-code"></i>
+                        <h3>Script Hub</h3>
+                        <p>Access a vast library of scripts from our integrated script hub.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <section>
-      <h2>Legal Disclaimer</h2>
-      <p class="meta">
-        Hexagon is intended solely for authorized security research, penetration testing, and bug bounty programs.
-        You may only use this software against systems and networks you own or have explicit written permission to test.
-        Misuse of this software may violate applicable laws and is strictly prohibited.  
-        The authors and distributors assume no liability for misuse or damage caused by this tool.
-      </p>
-    </section>
+        <section id="download" class="download-cta">
+            <div class="container">
+                <h2>Ready to Elevate Your Game?</h2>
+                <p>Click the button below to get started.</p>
+                <div class="hero-buttons">
+                    <a href="/static/Executor.zip" class="btn btn-secondary">Download Free <i class="fas fa-download"></i></a>
+                </div>
+            </div>
+        </section>
+    </main>
 
-    <section>
-      <h2>Contact</h2>
-      <p class="meta">
-        Questions or partnerships? Email <a href="mailto:security@hexagon.dev">security@hexagon.dev</a>  
-        or join our <a href="https://discord.gg/yourinvite">community Discord</a>.
-      </p>
-    </section>
-  </main>
-
-  <footer>
-    © <span id="year"></span> Hexagon Labs — All rights reserved.
-  </footer>
-
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 hexagon. All Rights Reserved.</p>
+        </div>
+    </footer>
 </body>
 </html>
