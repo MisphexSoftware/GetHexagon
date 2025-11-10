@@ -4,59 +4,58 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hexagon - The Future of Script Execution</title>
-    <meta name="description" content="Download Hexagon, the cutting-edge tool for script execution.">
+    <meta name="description" content="Hexagon - cutting-edge tool for script execution.">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
-        /* ========== Root Colors ========== */
         :root {
-            --primary-color: #00f5ff; /* Bright Cyan */
-            --dark-color: #0d0d0d;    /* Black */
-            --secondary-color: #008b8b; /* Dark Cyan */
+            --primary-color: #00f5ff;
+            --secondary-color: #008b8b;
+            --dark-color: #0d0d0d;
             --text-color: #e0e0e0;
         }
 
-        /* ========== Reset & Body ========== */
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
-        body { background-color: var(--dark-color); color: var(--text-color); line-height: 1.6; }
+        * { margin:0; padding:0; box-sizing:border-box; font-family:'Inter',sans-serif; }
+        body { background-color: var(--dark-color); color: var(--text-color); }
 
-        /* ========== Navbar ========== */
-        .navbar { width: 100%; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; background-color: #050505; position: sticky; top: 0; z-index: 100; }
-        .logo-container { display: flex; align-items: center; gap: 0.5rem; }
-        .logo-img { width: 40px; height: 40px; }
-        .logo { color: var(--primary-color); font-size: 1.5rem; font-weight: 700; }
-        .nav-links { display: flex; list-style: none; gap: 2rem; }
-        .nav-links a { color: var(--text-color); text-decoration: none; font-weight: 500; transition: color 0.3s; }
+        /* Navbar */
+        .navbar { width:100%; padding:1rem 2rem; display:flex; justify-content:space-between; align-items:center; background:#050505; position:sticky; top:0; z-index:100; }
+        .logo-container { display:flex; align-items:center; gap:0.5rem; }
+        .logo-img { width:40px; height:40px; }
+        .logo { color: var(--primary-color); font-size:1.5rem; font-weight:700; }
+        .nav-links { display:flex; list-style:none; gap:2rem; }
+        .nav-links a { color:var(--text-color); text-decoration:none; font-weight:500; transition: color 0.3s; }
         .nav-links a:hover { color: var(--primary-color); }
 
-        /* ========== Hero Section ========== */
-        .hero { min-height: 90vh; display: flex; align-items: center; justify-content: center; text-align: center; position: relative; overflow: hidden; }
-        .hero::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle, var(--secondary-color), transparent); opacity: 0.2; }
-        .hero h2 { font-size: 3rem; color: var(--primary-color); margin-bottom: 1rem; }
-        .hero p { font-size: 1.2rem; margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto; color: #cfcfcf; }
-        .btn { display: inline-block; padding: 0.8rem 2rem; border-radius: 8px; font-weight: 600; text-decoration: none; transition: all 0.3s ease; }
+        /* Hero */
+        .hero { min-height:90vh; display:flex; align-items:center; justify-content:center; text-align:center; position:relative; overflow:hidden; padding:2rem; }
+        .hero h2 { font-size:3rem; color: var(--primary-color); margin-bottom:1rem; }
+        .hero p { font-size:1.2rem; margin-bottom:2rem; max-width:600px; margin-left:auto; margin-right:auto; color:#cfcfcf; }
+
+        /* Discord Member Count */
+        .discord-btn { background: var(--secondary-color); color:#fff; padding:0.8rem 2rem; border-radius:8px; font-weight:600; text-decoration:none; display:flex; align-items:center; justify-content:center; gap:0.5rem; transition:all 0.3s; }
+        .discord-btn:hover { background: var(--primary-color); color: var(--dark-color); }
+
+        /* Features */
+        .features-section { padding:6rem 2rem; text-align:center; }
+        .features-section h2 { font-size:2.5rem; margin-bottom:3rem; color: var(--primary-color); }
+        .features-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:2rem; }
+        .feature-card { background:#111; border-radius:12px; padding:2rem 1.5rem; transition: transform 0.3s, box-shadow 0.3s; }
+        .feature-card i { font-size:2.5rem; color: var(--primary-color); margin-bottom:1rem; }
+        .feature-card h3 { font-size:1.5rem; margin-bottom:1rem; }
+        .feature-card p { color:#aaa; }
+        .feature-card:hover { transform: translateY(-10px); box-shadow: 0 10px 20px rgba(0,245,255,0.4); }
+
+        /* Download CTA */
+        .download-cta { padding:4rem 2rem; text-align:center; background:#050505; }
+        .download-cta h2 { font-size:2rem; margin-bottom:1rem; color: var(--primary-color); }
+        .download-cta p { margin-bottom:2rem; color:#ccc; }
+        .btn { display:inline-block; padding:0.8rem 2rem; border-radius:8px; font-weight:600; text-decoration:none; transition:all 0.3s ease; }
         .btn-secondary { background: var(--primary-color); color: var(--dark-color); }
-        .btn-secondary:hover { background: var(--secondary-color); color: #fff; }
+        .btn-secondary:hover { background: var(--secondary-color); color:#fff; }
 
-        /* ========== Features Section ========== */
-        .features-section { padding: 6rem 2rem; text-align: center; }
-        .features-section h2 { font-size: 2.5rem; margin-bottom: 3rem; color: var(--primary-color); }
-        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
-        .feature-card { background: #111; border-radius: 12px; padding: 2rem 1.5rem; transition: transform 0.3s, box-shadow 0.3s; }
-        .feature-card i { font-size: 2.5rem; color: var(--primary-color); margin-bottom: 1rem; }
-        .feature-card h3 { font-size: 1.5rem; margin-bottom: 1rem; }
-        .feature-card p { color: #aaa; }
-        .feature-card:hover { transform: translateY(-10px); box-shadow: 0 10px 20px rgba(0, 245, 255, 0.4); }
+        /* Footer */
+        footer { background:#000; padding:1.5rem 2rem; text-align:center; color:#555; font-size:0.9rem; }
 
-        /* ========== Download CTA ========== */
-        .download-cta { padding: 4rem 2rem; text-align: center; background: #050505; }
-        .download-cta h2 { font-size: 2rem; margin-bottom: 1rem; color: var(--primary-color); }
-        .download-cta p { margin-bottom: 2rem; color: #ccc; }
-
-        /* ========== Footer ========== */
-        footer { background: #000; padding: 1.5rem 2rem; text-align: center; color: #555; }
-        footer p { font-size: 0.9rem; }
-
-        /* ========== Responsive ========== */
         @media(max-width:768px){ .hero h2{font-size:2.2rem;} .hero p{font-size:1rem;} }
     </style>
 </head>
@@ -78,10 +77,9 @@
         <div class="container">
             <h2>Unlock Your Full Potential</h2>
             <p>Experience the most powerful and reliable executor. Get your key for Hexagon premium or download the free version now.</p>
-            <div class="hero-buttons">
-                <a href="https://discord.gg/PrBrVrH2WH" class="btn btn-secondary">Join Discord</a>
-                <a href="/static/Executor.zip" class="btn btn-secondary">Download Free <i class="fas fa-download"></i></a>
-            </div>
+            <a href="https://discord.gg/PrBrVrH2WH" class="discord-btn">
+                <i class="fab fa-discord"></i> Discord <span id="discord-count">...</span> Members
+            </a>
         </div>
     </header>
 
@@ -94,12 +92,12 @@
                     <div class="feature-card">
                         <i class="fas fa-bolt"></i>
                         <h3>Blazing Fast</h3>
-                        <p>Our executor is optimized for performance, ensuring a smooth and lag-free experience.</p>
+                        <p>Optimized for performance, ensuring a smooth and lag-free experience.</p>
                     </div>
                     <div class="feature-card">
                         <i class="fas fa-shield-alt"></i>
                         <h3>Undetectable</h3>
-                        <p>With our advanced security, you can use our executor without worrying about bans.</p>
+                        <p>Advanced security to use Hexagon without worrying about bans.</p>
                     </div>
                     <div class="feature-card">
                         <i class="fas fa-code"></i>
@@ -115,9 +113,7 @@
             <div class="container">
                 <h2>Ready to Elevate Your Game?</h2>
                 <p>Click the button below to get started.</p>
-                <div class="hero-buttons">
-                    <a href="/static/Executor.zip" class="btn btn-secondary">Download Free <i class="fas fa-download"></i></a>
-                </div>
+                <a href="/static/Executor.zip" class="btn btn-secondary">Download Free <i class="fas fa-download"></i></a>
             </div>
         </section>
     </main>
@@ -125,8 +121,25 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <p>&copy; 2025 Hexagon. All Rights Reserved.</p>
+            &copy; 2025 Hexagon. All Rights Reserved.
         </div>
     </footer>
+
+    <!-- Discord Member Count Script -->
+    <script>
+        async function fetchDiscordMembers() {
+            try {
+                const response = await fetch('https://discord.com/api/v10/guilds/YOUR_GUILD_ID/widget.json');
+                if (!response.ok) throw new Error('Network response not ok');
+                const data = await response.json();
+                document.getElementById('discord-count').textContent = data.presence_count;
+            } catch (error) {
+                console.error('Failed to fetch Discord members:', error);
+                document.getElementById('discord-count').textContent = 'N/A';
+            }
+        }
+
+        fetchDiscordMembers();
+    </script>
 </body>
 </html>
