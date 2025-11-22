@@ -1,163 +1,175 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hexagon - Futuristic Script Executor</title>
-<meta name="description" content="Hexagon - cutting-edge tool for script execution.">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aerolyte Scripts</title>
 
-<style>
-:root {
-    --primary-color: #00f5ff;
-    --secondary-color: #008b8b;
-    --dark-color: #0d0d0d;
-    --text-color: #e0e0e0;
-}
+    <style>
+        body {
+            margin: 0;
+            background: #0E0F12;
+            font-family: "Segoe UI", Arial, sans-serif;
+            color: #E6E9EF;
+        }
 
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif;}
-body{background-color:var(--dark-color);color:var(--text-color);overflow-x:hidden;}
+        .header {
+            background: #16181D;
+            padding: 20px;
+            text-align: center;
+            font-size: 26px;
+            font-weight: 600;
+            color: #98CEF7;
+            letter-spacing: 2px;
+            border-bottom: 1px solid #1E2126;
+        }
 
-/* Navbar */
-.navbar{width:100%;padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center;background:#050505;position:sticky;top:0;z-index:100;}
-.logo-container{display:flex;align-items:center;gap:0.5rem;}
-.logo-img{width:40px;height:40px;}
-.logo{color:var(--primary-color);font-size:1.5rem;font-weight:700;}
-.nav-links{display:flex;list-style:none;gap:2rem;}
-.nav-links a{color:var(--text-color);text-decoration:none;font-weight:500;transition:color 0.3s;}
-.nav-links a:hover{color:var(--primary-color);}
+        .search-box {
+            width: 70%;
+            margin: 25px auto;
+            display: flex;
+            justify-content: center;
+        }
 
-/* Hero */
-.hero{min-height:90vh;display:flex;align-items:center;justify-content:center;text-align:center;position:relative;overflow:hidden;padding:2rem;}
-.hero h2{font-size:3rem;color:var(--primary-color);margin-bottom:1rem;animation:fadeInDown 1s;}
-.hero p{font-size:1.2rem;margin-bottom:2rem;max-width:600px;margin:auto;color:#cfcfcf;animation:fadeIn 1.2s;}
-.discord-btn{background:var(--secondary-color);color:#fff;padding:0.8rem 2rem;border-radius:8px;font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:0.5rem;transition:all 0.3s;animation:fadeInUp 1.5s;}
-.discord-btn:hover{background:var(--primary-color);color:var(--dark-color);box-shadow:0 0 20px var(--primary-color);}
+        .search-box input {
+            width: 100%;
+            padding: 12px 16px;
+            border: none;
+            outline: none;
+            border-radius: 6px;
+            font-size: 18px;
+            background: #1A1C20;
+            color: #E6E9EF;
+            box-shadow: 0 0 0 1px #2B2E34;
+        }
 
-/* Features Section */
-.features-section{padding:6rem 2rem;text-align:center;}
-.features-section h2{font-size:2.5rem;margin-bottom:3rem;color:var(--primary-color);}
-.features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:2rem;}
+        .grid {
+            width: 90%;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            grid-gap: 20px;
+            padding-bottom: 40px;
+        }
 
-/* Feature Cards */
-.feature-card{background:#111;border-radius:12px;padding:2rem 1.5rem;transition:transform 0.3s,box-shadow 0.3s,filter 0.3s;opacity:0;transform:translateY(30px);}
-.feature-card i{font-size:2.5rem;color:var(--primary-color);margin-bottom:1rem;}
-.feature-card h3{font-size:1.5rem;margin-bottom:1rem;}
-.feature-card p{color:#aaa;}
-.feature-card:hover{transform:translateY(-15px) scale(1.05);box-shadow:0 10px 40px rgba(0,245,255,0.6);filter:drop-shadow(0 0 10px var(--primary-color));}
+        .card {
+            background: #16181D;
+            padding: 18px;
+            border-radius: 10px;
+            transition: 0.15s;
+            box-shadow: 0 0 0 1px #1E2126;
+        }
 
-/* Download CTA */
-.download-cta{padding:4rem 2rem;text-align:center;background:#050505;}
-.download-cta h2{font-size:2rem;margin-bottom:1rem;color:var(--primary-color);}
-.download-cta p{margin-bottom:2rem;color:#ccc;}
-.btn{display:inline-block;padding:0.8rem 2rem;border-radius:8px;font-weight:600;text-decoration:none;transition:all 0.3s ease;}
-.btn-secondary{background:var(--primary-color);color:var(--dark-color);}
-.btn-secondary:hover{background:var(--secondary-color);color:#fff;box-shadow:0 0 20px var(--primary-color);}
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 12px #1a202c;
+        }
 
-/* Footer */
-footer{background:#000;padding:1.5rem 2rem;text-align:center;color:#555;font-size:0.9rem;}
+        .card img {
+            width: 100%;
+            border-radius: 8px;
+            margin-bottom: 12px;
+        }
 
-/* Animations */
-@keyframes fadeIn {from{opacity:0;}to{opacity:1;}}
-@keyframes fadeInDown {from{opacity:0;transform:translateY(-20px);}to{opacity:1;transform:translateY(0);}}
-@keyframes fadeInUp {from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+        .card h3 {
+            margin: 0 0 5px 0;
+            font-size: 20px;
+            color: #98CEF7;
+            letter-spacing: 1px;
+        }
 
-.feature-card.show{opacity:1;transform:translateY(0);transition:all 0.6s ease-out;}
+        .meta {
+            font-size: 14px;
+            color: #9AA1A8;
+            margin-bottom: 12px;
+        }
 
-/* Starfield Background */
-#stars{position:absolute;top:0;left:0;width:100%;height:100%;background:black;z-index:-1;overflow:hidden;}
-.star{position:absolute;background:white;border-radius:50%;animation:twinkle 5s infinite;}
-@keyframes twinkle{0%,100%{opacity:0.2;}50%{opacity:1;}}
+        .desc {
+            font-size: 15px;
+            color: #D9DDE3;
+            margin-bottom: 16px;
+        }
 
-/* Responsive */
-@media(max-width:768px){.hero h2{font-size:2.2rem;}.hero p{font-size:1rem;}}
-</style>
+        .download {
+            padding: 10px 14px;
+            background: #1F2835;
+            border-radius: 6px;
+            text-decoration: none;
+            color: #98CEF7;
+            font-weight: 600;
+            transition: 0.12s;
+            border: 1px solid #2C3644;
+        }
+
+        .download:hover {
+            background: #263041;
+        }
+    </style>
 </head>
+
 <body>
 
-<div id="stars"></div>
+    <div class="header">AEROLYTE SCRIPT LIBRARY</div>
 
-<!-- Navbar -->
-<nav class="navbar">
-    <div class="logo-container">
-        <img src="/static/hexagon.png" alt="Hexagon Logo" class="logo-img">
-        <h1 class="logo">Hexagon</h1>
+    <div class="search-box">
+        <input id="search" type="text" placeholder="Search scripts...">
     </div>
-    <ul class="nav-links">
-        <li><a href="#features">Features</a></li>
-        <li><a href="#download">Download</a></li>
-    </ul>
-</nav>
 
-<!-- Hero -->
-<header class="hero">
-    <div class="container">
-        <h2>Unlock Your Full Potential</h2>
-        <p>Experience the most powerful and reliable executor. Join our Discord to stay updated and connect with the community.</p>
-        <a href="https://discord.gg/PrBrVrH2WH" class="discord-btn">
-            <i class="fab fa-discord"></i> Join Discord
-        </a>
-    </div>
-</header>
+    <div id="grid" class="grid"></div>
 
-<!-- Features -->
-<main>
-<section id="features" class="features-section">
-    <div class="container">
-        <h2>Why Choose Hexagon?</h2>
-        <div class="features-grid">
-            <div class="feature-card"><i class="fas fa-bolt"></i><h3>Blazing Fast</h3><p>Optimized for performance, ensuring smooth and lag-free execution.</p></div>
-            <div class="feature-card"><i class="fas fa-shield-alt"></i><h3>Undetectable</h3><p>Advanced security to use Hexagon without worrying about bans.</p></div>
-            <div class="feature-card"><i class="fas fa-code"></i><h3>Script Hub</h3><p>Access a vast library of scripts from our integrated hub.</p></div>
-            <div class="feature-card"><i class="fas fa-cogs"></i><h3>Customizable</h3><p>Fully customizable executor interface and settings.</p></div>
-            <div class="feature-card"><i class="fas fa-tachometer-alt"></i><h3>High Performance</h3><p>Handles large scripts without slowing down your game.</p></div>
-            <div class="feature-card"><i class="fas fa-users"></i><h3>Community Driven</h3><p>Connect and share scripts with an active community.</p></div>
-        </div>
-    </div>
-</section>
+    <script>
+        // You can move this to /scripts/scripts.json
+        const scripts = [
+            {
+                "name": "Rainbow Trails",
+                "author": "Aerolyte",
+                "version": "1.3",
+                "description": "Beautiful rainbow visual effect generator.",
+                "image": "rainbow.png",
+                "file": "rainbow.txt"
+            },
+            {
+                "name": "Auto Builder",
+                "author": "AlexDev",
+                "version": "2.0",
+                "description": "Construction automation tool.",
+                "image": "builder.png",
+                "file": "builder.txt"
+            }
+        ];
 
-<!-- Download CTA -->
-<section id="download" class="download-cta">
-    <div class="container">
-        <h2>Ready to Elevate Your Game?</h2>
-        <p>Click the button below to get started.</p>
-        <a href="/static/Executor.zip" class="btn btn-secondary">Download Free <i class="fas fa-download"></i></a>
-    </div>
-</section>
-</main>
+        const grid = document.getElementById("grid");
+        const search = document.getElementById("search");
 
-<!-- Footer -->
-<footer>
-<div class="container">&copy; 2025 Hexagon. All Rights Reserved.</div>
-</footer>
+        function display(list) {
+            grid.innerHTML = "";
 
-<script>
-// Scroll Animations
-const cards = document.querySelectorAll('.feature-card');
-window.addEventListener('scroll', () => {
-    const triggerBottom = window.innerHeight * 0.85;
-    cards.forEach(card => {
-        const cardTop = card.getBoundingClientRect().top;
-        if(cardTop < triggerBottom){
-            card.classList.add('show');
+            list.forEach(s => {
+                let card = `
+                    <div class="card">
+                        <img src="${s.image}" alt="">
+                        <h3>${s.name}</h3>
+                        <div class="meta">Author: ${s.author} • v${s.version}</div>
+                        <div class="desc">${s.description}</div>
+                        <a class="download" href="${s.file}" download>Download Script</a>
+                    </div>
+                `;
+                grid.innerHTML += card;
+            });
         }
-    });
-});
 
-// Starfield
-const starsContainer = document.getElementById('stars');
-for(let i=0;i<100;i++){
-    const star = document.createElement('div');
-    star.className='star';
-    const size = Math.random()*2+1;
-    star.style.width=size+'px';
-    star.style.height=size+'px';
-    star.style.top=Math.random()*100+'%';
-    star.style.left=Math.random()*100+'%';
-    star.style.animationDuration=(Math.random()*5+3)+'s';
-    starsContainer.appendChild(star);
-}
-</script>
+        search.addEventListener("input", () => {
+            const val = search.value.toLowerCase();
+            const filtered = scripts.filter(x => 
+                x.name.toLowerCase().includes(val) ||
+                x.author.toLowerCase().includes(val) ||
+                x.description.toLowerCase().includes(val)
+            );
+            display(filtered);
+        });
+
+        display(scripts);
+    </script>
 
 </body>
 </html>
